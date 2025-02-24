@@ -1,8 +1,8 @@
 import { ChatUserstate, Client } from "tmi.js";
 import { readdirSync } from "fs";
 import { join, parse } from "path";
+import { prefix } from '../config.json';
 
-const prefix: string = "!";
 const commands = new Map<string, Function>();
 const commandsPath = join(__dirname, "../commands");
 const commandFiles = readdirSync(commandsPath).filter(file => file.endsWith(".ts") || file.endsWith(".js"));

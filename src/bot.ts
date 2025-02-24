@@ -1,13 +1,16 @@
 import * as tmi from "tmi.js";
 import { readdirSync } from "fs";
 import { join, parse } from "path";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const client = new tmi.Client({
     options: { debug: true },
-    channels: ["kaluminium"],
+    channels: [process.env.CHANNEL || "default_channel"],
     identity: {
-        username: "kaluminium",
-        password: "oauth:2d3f0480fvwhuhgzn54la2r5n385lg",
+        username: process.env.USERNAME,
+        password: process.env.OAUTH_TOKEN,
     },
 });
 

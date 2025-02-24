@@ -1,10 +1,15 @@
 {
     "compilerOptions": {
       "target": "ES6",
-      "module": "CommonJS",
+      "module": "commonjs",
       "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
       "outDir": "./dist",
-      "rootDir": "./src"
-    }
+      "types": ["node", "dotenv"],
+      "skipDefaultLibCheck": true,
+      "resolveJsonModule": true,
+    },
+    "include": ["src", "src/**/*.json", "types"]
   }
   

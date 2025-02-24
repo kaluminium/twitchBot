@@ -2,6 +2,7 @@ import * as tmi from "tmi.js";
 import { readdirSync } from "fs";
 import { join, parse } from "path";
 import dotenv from 'dotenv';
+import * as config from './config.json'
 
 dotenv.config();
 
@@ -36,9 +37,11 @@ for (const file of eventFiles) {
     }).catch(err => console.error(`❌ Erreur lors du chargement de ${file}:`, err));
 }
 
-setInterval(() => {
-    client.say(
-        "#kaluminium",
-        "Hey salut à toi ! Tu aimes Pokémon et la shasse ? Alors pose toi tranquillement devant le stream, lâche ton meilleur follow et si tu veux en savoir plus fais un !discord :)"
-    );
-}, 300000);
+for(const repeated_message of config.repeated_messages){
+    setInterval(() => {
+        client.say(
+            `#${process.env.CHANNEL}`,
+            repeated_message.message
+        )
+    }, repeated_message.cooldown * 1000)
+}

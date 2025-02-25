@@ -30,9 +30,6 @@ export default function (client: Client, channel: string, tags: ChatUserstate, m
     if (!commandName) return;
 
     const command = commands.get(commandName);
-    if (command) {
-        command(client, channel, tags, args);
-    } else {
-        client.say(channel, `@${tags.username}, cette commande n'existe pas.`);
-    }
+    if (!command) return;
+    command(client, channel, tags, args);
 }

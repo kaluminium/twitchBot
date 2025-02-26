@@ -3,7 +3,7 @@
     "repeated_messages" : [
         {
             "message" : "Hey salut à toi ! Tu aimes Pokémon et la shasse ? Alors pose toi tranquillement devant le stream, lâche ton meilleur follow et si tu veux en savoir plus fais un !discord :)",
-            "cooldown" : 300
+            "cooldown" : 900
         }
     ]
 }
